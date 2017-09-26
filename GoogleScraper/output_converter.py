@@ -117,10 +117,11 @@ def store_serp_result(serp, config):
         elif output_format == 'csv':
             outfile.write(data, serp)
         elif output_format == 'stdout':
-            if config.get('print_results') == 'summarize':
-                print(serp)
-            elif config.get('print_results') == 'all':
-                pprint.pprint(data)
+            a = 1
+            # if config.get('print_results') == 'summarize':
+            #     print(serp)
+            # elif config.get('print_results') == 'all':
+            #     pprint.pprint(data)
 
 
 def row2dict(obj):

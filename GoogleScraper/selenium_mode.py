@@ -56,7 +56,7 @@ class SelScrape(SearchEngineScrape, threading.Thread):
 
     next_page_selectors = {
         'google': '#pnnext',
-        'yandex': '.pager__button_kind_next',
+        'yandex': '.pager__item_kind_next',
         'bing': '.sb_pagN',
         'yahoo': '#pg-next',
         'baidu': '.n',
@@ -220,7 +220,7 @@ class SelScrape(SearchEngineScrape, threading.Thread):
                     '--proxy-server={}://{}:{}'.format(self.proxy.proto, self.proxy.host, self.proxy.port))
                 self.webdriver = webdriver.Chrome(chrome_options=chrome_ops)
             else:
-                self.webdriver = webdriver.Chrome()#service_log_path='/tmp/chromedriver_log.log')
+                self.webdriver = webdriver.Chrome('/Users/ebagdasaryan/Documents/development/other/chromedriver')#service_log_path='/tmp/chromedriver_log.log')
             return True
         except WebDriverException as e:
             # we don't have a chrome executable or a chrome webdriver installed
@@ -476,7 +476,7 @@ class SelScrape(SearchEngineScrape, threading.Thread):
             if self.search_engine_name == 'google':
                 selector = '#navcnt td.cur'
             elif self.search_engine_name == 'yandex':
-                selector = '.pager__item_current_yes font font'
+                selector = '.pager__item_current_yes'
             elif self.search_engine_name == 'bing':
                 selector = 'nav li a.sb_pagS'
             elif self.search_engine_name == 'yahoo':
